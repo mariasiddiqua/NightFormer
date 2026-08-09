@@ -1,0 +1,29 @@
+# configs/LSRW/train/training_LSRW.yaml
+
+# Training configuration
+GPU: [0]
+VERBOSE: False
+
+MODEL:
+  NAME: CF_UFormer(base_ch=48, use_weather_adapters=True)                 # for readability/logging
+  MODE: 'CF-UFormer_LSRW'          # keep if your code logs this value
+  BASE_CH: 48                      # <— maps to CF_UFormer(base_ch=48)
+  USE_WEATHER_ADAPTERS: true       # <— maps to CF_UFormer(use_weather_adapters=True)
+
+# Optimization arguments.
+OPTIM:
+  BATCH: 4
+  EPOCHS: 100
+  LR_INITIAL: 1e-4
+  LR_MIN: 1e-6
+  # WEIGHT_DECAY can be added here if you want to expose it:
+  # WEIGHT_DECAY: 1e-4
+
+TRAINING:
+  VAL_AFTER_EVERY: 1
+  RESUME: True
+  TRAIN_PS: 128
+  VAL_PS: 128
+  TRAIN_DIR: '/12KImagesModel/train'     # path to training data
+  VAL_DIR: '/12KImagesModel/test'        # path to validation data
+  SAVE_DIR: '/12KImagesModel/checkpoints'
