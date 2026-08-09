@@ -57,15 +57,14 @@ python test.py --input_dir your_data_path --result_dir your_save_path --weights 
 
 ### Train
 
-1. To download BDD100K training and testing data
+1. Download BDD100K training and testing data
 
-3. To train NightFormer, run
+2. To train NightFormer, run
 ```bash
 python train.py --opt your_config_path
 ```
-```
 You need to modify the config for your own training environment.
-```
+
 
 If you have any questions, please contact mariasiddiqua@hotmail.com
 
